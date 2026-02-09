@@ -1,7 +1,8 @@
-<!DOCTYPE html><html lang="ar">
+<!DOCTYPE html>
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>موقع 120 إعلان + شريط لكل إعلان</title>
+<title>موقع إعلانات + شريط لكل إعلان</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body {
@@ -11,53 +12,96 @@ body {
     flex-direction:column;
     align-items:center;
     font-family: Arial, sans-serif;
-}.top-bar { position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: center; background: #111827; z-index: 9999; padding: 5px 0; }
+}
 
-.content { margin-top: 70px; display:flex; flex-direction:column; align-items:center; }
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #111827;
+    z-index: 9999;
+    padding: 5px 0;
+}
 
-.inner-bar { width: 100%; display: flex; justify-content: center; background:#1f2937; padding: 5px 0; margin: 20px 0; }
+.content {
+    margin-top: 70px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 
-.ads-section { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:20px; }
+.inner-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background:#1f2937;
+    padding: 5px 0;
+    margin: 20px 0;
+}
 
-.ad { display:flex; flex-direction:column; justify-content:center; align-items:center; }
+.ads-section {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:20px;
+}
 
-.ad-bar { width:100%; display:flex; justify-content:center; background:#111827; margin-top:5px; padding:3px 0; } </style>
+.ad {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
 
+.ad-bar {
+    width:100%;
+    display:flex;
+    justify-content:center;
+    background:#111827;
+    margin-top:5px;
+    padding:3px 0;
+}
+</style>
 </head>
-<body><div class="top-bar">
+<body>
+
+<!-- شريط علوي ثابت -->
+<div class="top-bar">
 <script src="https://pl28681139.effectivegatecpm.com/ff/86/ba/ff86bad0f4d3c9bab6310e672a9b23dd.js"></script>
-</div><div class="content"><div class="ads-section">
-<!-- كرر إعلان صغير + شريط 20 مرة -->
+</div>
+
+<div class="content">
+
+<!-- قسم الإعلانات -->
+<div class="ads-section">
 <script>
-for(let i=0;i<20;i++){
+// تكرار 60 إعلان مع شريط لكل إعلان
+for(let i=0; i<60; i++){
     document.write(`
     <div class="ad">
-        <script>atOptions={'key':'e4196c28159d40bd49d45e479fb1d7eb','format':'iframe','height':50,'width':320,'params':{} };</script>
-        <script src="https://www.highperformanceformat.com/e4196c28159d40bd49d45e479fb1d7eb/invoke.js"></script>
+        <script>
+        atOptions={'key':'0d93af70e1c5289d9a4092aaa29e9828','format':'iframe','height':250,'width':300,'params':{} };
+        <\/script>
+        <script src='https://www.highperformanceformat.com/0d93af70e1c5289d9a4092aaa29e9828/invoke.js'><\/script>
         <div class="ad-bar">
-            <script src="https://pl28681139.effectivegatecpm.com/ff/86/ba/ff86bad0f4d3c9bab6310e672a9b23dd.js"></script>
+            <script src='https://pl28681139.effectivegatecpm.com/ff/86/ba/ff86bad0f4d3c9bab6310e672a9b23dd.js'><\/script>
         </div>
     </div>
     `);
 }
 </script>
-</div><div class="inner-bar">
+</div>
+
+<!-- شريط داخلي بين الأقسام -->
+<div class="inner-bar">
 <script src="https://pl28681086.effectivegatecpm.com/59/59/7b/59597ba8f1ae948f58f25f3a35033ff8.js"></script>
-</div><div class="ads-section">
-<!-- كرر إعلان كبير + شريط 100 مرة -->
-<script>
-for(let i=0;i<100;i++){
-    document.write(`
-    <div class="ad">
-        <script>atOptions={'key':'0d93af70e1c5289d9a4092aaa29e9828','format':'iframe','height':250,'width':300,'params':{} };</script>
-        <script src="https://www.highperformanceformat.com/0d93af70e1c5289d9a4092aaa29e9828/invoke.js"></script>
-        <div class="ad-bar">
-            <script src="https://pl28681139.effectivegatecpm.com/ff/86/ba/ff86bad0f4d3c9bab6310e672a9b23dd.js"></script>
-        </div>
-    </div>
-    `);
-}
-</script>
-</div></div>
+</div>
+
+</div> <!-- نهاية المحتوى -->
+
 </body>
 </html>
