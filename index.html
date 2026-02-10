@@ -1,108 +1,108 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>موقع إعلانات + شريط لكل إعلان</title>
+<title>Ads Only</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body {
-    margin:0;
-    background:#0f172a;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    font-family: Arial, sans-serif;
+html, body{
+  margin:0;
+  padding:0;
+  background:#000;
+  width:300px;      /* عرض البنر */
+  height:250px;     /* ارتفاع البنر */
+  overflow:hidden;  /* يمنع التمرير */
 }
-
-.top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background: #111827;
-    z-index: 9999;
-    padding: 5px 0;
+#adContainerDynamic{
+  width:300px;
+  height:250px;
 }
-
-.content {
-    margin-top: 70px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+#adContainerFixed{
+  width:300px;
+  height:250px;
 }
-
-.inner-bar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background:#1f2937;
-    padding: 5px 0;
-    margin: 20px 0;
-}
-
-.ads-section {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-    margin-bottom:20px;
-}
-
-.ad {
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-
-.ad-bar {
-    width:100%;
-    display:flex;
-    justify-content:center;
-    background:#111827;
-    margin-top:5px;
-    padding:3px 0;
+#socialBar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:300px;
+  background:#000;
+  text-align:center;
+  padding:0;
+  display:none;
+  z-index:9999;
 }
 </style>
 </head>
 <body>
 
-<!-- شريط علوي ثابت -->
-<div class="top-bar">
-<script src="https://pl28681139.effectivegatecpm.com/ff/86/ba/ff86bad0f4d3c9bab6310e672a9b23dd.js"></script>
-</div>
+<!-- بنر ديناميكي 200 مرة خلال 3 دقائق -->
+<div id="adContainerDynamic"></div>
 
-<div class="content">
-
-<!-- قسم الإعلانات -->
-<div class="ads-section">
+<!-- بنر ثابت أسفل الصفحة -->
+<div id="adContainerFixed">
 <script>
-// تكرار 400 إعلان مع شريط لكل إعلان
-for(let i=0; i<400; i++){
-    document.write(`
-    <div class="ad">
-        <script>
-        atOptions={'key':'0d93af70e1c5289d9a4092aaa29e9828','format':'iframe','height':250,'width':300,'params':{} };
-        <\/script>
-        <script src='https://www.highperformanceformat.com/0d93af70e1c5289d9a4092aaa29e9828/invoke.js'><\/script>
-        <div class="ad-bar">
-            <script src='https://pl28681139.effectivegatecpm.com/ff/86/ba/ff86bad0f4d3c9bab6310e672a9b23dd.js'><\/script>
-        </div>
-    </div>
-    `);
-}
+atOptions = {
+  'key' : 'c560f1ac83c71a9615552818280a4464',
+  'format' : 'iframe',
+  'height' : 250,
+  'width' : 300,
+  'params' : {}
+};
 </script>
+<script src="https://www.highperformanceformat.com/c560f1ac83c71a9615552818280a4464/invoke.js"></script>
 </div>
 
-<!-- شريط داخلي بين الأقسام -->
-<div class="inner-bar">
-<script src="https://pl28681086.effectivegatecpm.com/59/59/7b/59597ba8f1ae948f58f25f3a35033ff8.js"></script>
-</div>
+<!-- Social Bar -->
+<div id="socialBar"></div>
 
-</div> <!-- نهاية المحتوى -->
+<script>
+// 🔁 Social Bar كل 10 ثواني كما هو
+let bar = document.getElementById("socialBar");
+setInterval(() => {
+    bar.innerHTML = '';
+    let script = document.createElement('script');
+    script.src = 'https://pl28687130.effectivegatecpm.com/90/ca/87/90ca87b6ebc55f6da64b54466e46c7e9.js';
+    bar.appendChild(script);
+    bar.style.display = "block";
+    setTimeout(()=>{bar.style.display="none"}, 3000);
+},10000);
+
+// 🔁 بنر ديناميكي 200 مرة خلال 3 دقائق
+let containerDynamic = document.getElementById("adContainerDynamic");
+let count = 0;
+let maxShows = 200;
+let intervalTime = 180000 / maxShows; // 3 دقائق ÷ 200 ≈ 0.9 ثانية
+
+function showDynamicBanner(){
+    if(count >= maxShows) return;
+
+    containerDynamic.innerHTML = ''; // مسح القديم
+
+    let script1 = document.createElement('script');
+    script1.innerHTML = 
+        atOptions = {
+            'key' : 'c560f1ac83c71a9615552818280a4464',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+        };
+    ;
+    containerDynamic.appendChild(script1);
+
+    let script2 = document.createElement('script');
+    script2.src = 'https://www.highperformanceformat.com/c560f1ac83c71a9615552818280a4464/invoke.js';
+    containerDynamic.appendChild(script2);
+
+    count++;
+    setTimeout(showDynamicBanner, intervalTime);
+}
+
+// بدء عرض البنر الديناميكي
+showDynamicBanner();
+</script>
 
 </body>
-
 </html>
