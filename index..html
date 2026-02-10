@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compact Ads Page</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    width: 320px; /* عرض الصفحة */
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #ad-main {
+    width: 300px;
+    height: 250px;
+    margin: 0;
+  }
+  #article {
+    width: 300px;
+    padding: 5px;
+    margin: 2px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 12px;
+  }
+  #ad-under {
+    width: 300px;
+    height: 50px;
+    margin: 2px 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- الإعلان الرئيسي -->
+<div id="ad-main"></div>
+
+<!-- المقال -->
+<div id="article">
+  <h4>Stay Informed!</h4>
+  <p>This is a short English article below the main ad. Please read carefully.</p>
+</div>
+
+<!-- الإعلان تحت المقال -->
+<div id="ad-under"></div>
+
+<script>
+// === الإعلان الرئيسي 200 مرة خلال 3 دقائق ===
+const totalShows = 200;
+const totalDuration = 3 * 60 * 1000;
+const intervalTime = totalDuration / totalShows;
+let count = 0;
+
+function showMainAd() {
+    const container = document.getElementById('ad-main');
+    container.innerHTML = '';
+    const script1 = document.createElement('script');
+    script1.innerHTML = "atOptions = { 'key':'c560f1ac83c71a9615552818280a4464','format':'iframe','height':250,'width':300,'params':{} };";
+    container.appendChild(script1);
+    const script2 = document.createElement('script');
+    script2.src = "https://www.highperformanceformat.com/c560f1ac83c71a9615552818280a4464/invoke.js";
+    container.appendChild(script2);
+
+    count++;
+    if(count >= totalShows) clearInterval(mainAdInterval);
+}
+
+const mainAdInterval = setInterval(showMainAd, intervalTime);
+showMainAd();
+
+// === الإعلان تحت المقال (مرة واحدة) ===
+function showUnderAd() {
+    const container = document.getElementById('ad-under');
+    container.innerHTML = '';
+    const script1 = document.createElement('script');
+    script1.innerHTML = "atOptions = { 'key':'6f0e3f8b25bff564c79eccea6149c9fc','format':'iframe','height':50,'width':300,'params':{} };";
+    container.appendChild(script1);
+    const script2 = document.createElement('script');
+    script2.src = "https://www.highperformanceformat.com/6f0e3f8b25bff564c79eccea6149c9fc/invoke.js";
+    container.appendChild(script2);
+}
+
+showUnderAd();
+</script>
+
+</body>
+</html>
