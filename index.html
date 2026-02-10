@@ -2,106 +2,91 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Ads Only</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>Compact Ads Page</title>
 <style>
-html, body{
-  margin:0;
-  padding:0;
-  background:#000;
-  width:300px;      /* عرض البنر */
-  height:250px;     /* ارتفاع البنر */
-  overflow:hidden;  /* يمنع التمرير */
-}
-#adContainerDynamic{
-  width:300px;
-  height:250px;
-}
-#adContainerFixed{
-  width:300px;
-  height:250px;
-}
-#socialBar{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:300px;
-  background:#000;
-  text-align:center;
-  padding:0;
-  display:none;
-  z-index:9999;
-}
+  body {
+    margin: 0;
+    padding: 0;
+    width: 320px; /* عرض الصفحة */
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #ad-main {
+    width: 300px;
+    height: 250px;
+    margin: 0;
+  }
+  #article {
+    width: 300px;
+    padding: 5px;
+    margin: 2px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 12px;
+  }
+  #ad-under {
+    width: 300px;
+    height: 50px;
+    margin: 2px 0;
+  }
 </style>
 </head>
 <body>
 
-<!-- بنر ديناميكي 200 مرة خلال 3 دقائق -->
-<div id="adContainerDynamic"></div>
+<!-- الإعلان الرئيسي -->
+<div id="ad-main"></div>
 
-<!-- بنر ثابت أسفل الصفحة -->
-<div id="adContainerFixed">
-<script>
-atOptions = {
-  'key' : 'c560f1ac83c71a9615552818280a4464',
-  'format' : 'iframe',
-  'height' : 250,
-  'width' : 300,
-  'params' : {}
-};
-</script>
-<script src="https://www.highperformanceformat.com/c560f1ac83c71a9615552818280a4464/invoke.js"></script>
+<!-- المقال -->
+<div id="article">
+  <h4>Stay Informed!</h4>
+  <p>This is a short English article below the main ad. Please read carefully.</p>
 </div>
 
-<!-- Social Bar -->
-<div id="socialBar"></div>
+<!-- الإعلان تحت المقال -->
+<div id="ad-under"></div>
 
 <script>
-// 🔁 Social Bar كل 10 ثواني كما هو
-let bar = document.getElementById("socialBar");
-setInterval(() => {
-    bar.innerHTML = '';
-    let script = document.createElement('script');
-    script.src = 'https://pl28687130.effectivegatecpm.com/90/ca/87/90ca87b6ebc55f6da64b54466e46c7e9.js';
-    bar.appendChild(script);
-    bar.style.display = "block";
-    setTimeout(()=>{bar.style.display="none"}, 3000);
-},10000);
-
-// 🔁 بنر ديناميكي 200 مرة خلال 3 دقائق
-let containerDynamic = document.getElementById("adContainerDynamic");
+// === الإعلان الرئيسي 200 مرة خلال 3 دقائق ===
+const totalShows = 200;
+const totalDuration = 3 * 60 * 1000;
+const intervalTime = totalDuration / totalShows;
 let count = 0;
-let maxShows = 200;
-let intervalTime = 180000 / maxShows; // 3 دقائق ÷ 200 ≈ 0.9 ثانية
 
-function showDynamicBanner(){
-    if(count >= maxShows) return;
-
-    containerDynamic.innerHTML = ''; // مسح القديم
-
-    let script1 = document.createElement('script');
-    script1.innerHTML = 
-        atOptions = {
-            'key' : 'c560f1ac83c71a9615552818280a4464',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-        };
-    ;
-    containerDynamic.appendChild(script1);
-
-    let script2 = document.createElement('script');
-    script2.src = 'https://www.highperformanceformat.com/c560f1ac83c71a9615552818280a4464/invoke.js';
-    containerDynamic.appendChild(script2);
+function showMainAd() {
+    const container = document.getElementById('ad-main');
+    container.innerHTML = '';
+    const script1 = document.createElement('script');
+    script1.innerHTML = "atOptions = { 'key':'c560f1ac83c71a9615552818280a4464','format':'iframe','height':250,'width':300,'params':{} };";
+    container.appendChild(script1);
+    const script2 = document.createElement('script');
+    script2.src = "https://www.highperformanceformat.com/c560f1ac83c71a9615552818280a4464/invoke.js";
+    container.appendChild(script2);
 
     count++;
-    setTimeout(showDynamicBanner, intervalTime);
+    if(count >= totalShows) clearInterval(mainAdInterval);
 }
 
-// بدء عرض البنر الديناميكي
-showDynamicBanner();
+const mainAdInterval = setInterval(showMainAd, intervalTime);
+showMainAd();
+
+// === الإعلان تحت المقال (مرة واحدة) ===
+function showUnderAd() {
+    const container = document.getElementById('ad-under');
+    container.innerHTML = '';
+    const script1 = document.createElement('script');
+    script1.innerHTML = "atOptions = { 'key':'6f0e3f8b25bff564c79eccea6149c9fc','format':'iframe','height':50,'width':300,'params':{} };";
+    container.appendChild(script1);
+    const script2 = document.createElement('script');
+    script2.src = "https://www.highperformanceformat.com/6f0e3f8b25bff564c79eccea6149c9fc/invoke.js";
+    container.appendChild(script2);
+}
+
+showUnderAd();
 </script>
 
 </body>
